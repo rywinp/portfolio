@@ -1,11 +1,8 @@
 'use client'
 
-import { headers } from "next/headers";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [headerStatus, setHeaderStatus] = useState(true)
   const [headerOpacity, setHeaderOpacity] = useState(1)
   
   useEffect(() => {
