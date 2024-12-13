@@ -11,7 +11,7 @@ export default function Home() {
       
       if(window.scrollY >= 10 && window.scrollY <= 300) {
         // Optimize this into ranges so there isnt a need to calculate so much
-        let dividend = Math.floor(window.scrollY / 25)
+        const dividend = Math.floor(window.scrollY / 25)
         setHeaderOpacity(1 / ((dividend * 1.5) + 1));
       }
       else if(window.scrollY < 10) {
