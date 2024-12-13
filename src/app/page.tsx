@@ -9,10 +9,12 @@ export default function Home() {
 
     const handleScroll = () => {
       
-      if(window.scrollY >= 1 && window.scrollY <= 200) {
-        setHeaderOpacity(1/ (window.scrollY / 150 + 1));
+      if(window.scrollY >= 10 && window.scrollY <= 300) {
+        // Optimize this into ranges so there isnt a need to calculate so much
+        let dividend = Math.floor(window.scrollY / 25)
+        setHeaderOpacity(1 / ((dividend * 1.5) + 1));
       }
-      else if(window.scrollY == 0) {
+      else if(window.scrollY < 10) {
         setHeaderOpacity(1);
       }
       else {
@@ -29,22 +31,24 @@ export default function Home() {
 
   return(
     <>
-      <div className="relative w-full flex justify-center items-center h-screen">
-        {/* Background image with opacity */}
-        <div
-          className={`absolute inset-0 bg-cover bg-center transition duration-150`}
-          style={{
-            backgroundImage: `url(/RywinDennisRectangle.jpeg)`,
-            opacity: `${headerOpacity}`,
-          }}
-        ></div>
+      <header className="flex justify-center h-screen">
+        <div className="relative w-[1920px] h-[550px] flex justify-center items-center ">
 
-        {/* Content */}
-        <h1 className="absolute left-0 bottom-0 text-9xl font-bold text-white leading-tight">
-          Rywin Patcharaput
-        </h1>
-      </div>
+          {/* Background image with opacity */}
+          <div
+            className={`flex absolute inset-0 bg-cover bg-center transition duration-150`}
+            style={{
+              backgroundImage: `url(/RywinDennisRectangle.jpeg)`,
+              opacity: `${headerOpacity}`,
+            }}
+          ></div>
 
+          {/* Content */}
+          <h1 className="absolute left-0 bottom-0 text-9xl font-bold text-white leading-tight">
+            Rywin Patcharaput
+          </h1>
+        </div>
+      </header>
 
       <div className="h-[1000px]">
         end page
