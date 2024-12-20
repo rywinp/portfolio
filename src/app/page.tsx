@@ -1,15 +1,15 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import Playlist from "@/app/ui/playlist.tsx";
-import AboutMe from "@/app/ui/aboutme.tsx";
+import Song from "@/app/ui/song.tsx";
 import { ProjectList } from "@/app/data/projects.tsx";
+import { AboutMeComponent } from "@/app/data/aboutme.tsx";
 
 export default function Home() {
   const [headerOpacity, setHeaderOpacity] = useState(1);
 
   const handleScroll = () => {
-    if(window.scrollY >= 10 && window.scrollY <= 300) {
+    if(window.scrollY >= 10 && window.scrollY <= 375) {
       // Optimize this into ranges so there isnt a need to calculate so much
       // const dividend = Math.floor(window.scrollY / 25)
       const dividend = window.scrollY / 45
@@ -38,40 +38,72 @@ export default function Home() {
 
   return(
     <>
-      <header>
-        <div className="relative w-[1920px] h-[550px]">
-          
-          {/* Background image with opacity */}
-          <div
-            className={`absolute inset-0 bg-cover bg-center transition duration-150`}
-            style={{
-              backgroundImage: `url(/RywinDennisRectangle.jpeg)`,
-              opacity: `${headerOpacity}`,
-            }}
-          ></div>
+      {/* PROFILE BANNER */}
+      <header className="relative w-full h-[550px]">
+        
+        {/* Background image with opacity */}
+        <div
+          className={`absolute inset-0 bg-cover bg-center`}
+          style={{
+            backgroundImage: `url(/RywinDennisRectangle.jpeg)`,
+            opacity: `${headerOpacity}`,
+          }}
+        ></div>
 
-          {/* Content */}
-          <div className="absolute left-0 bottom-0">
-            <h1 className="pl-4 text-9xl font-bold leading-tight">
-              Rywin Patcharaput
-            </h1>
-          </div>
-
+        {/* Content */}
+        <div className="absolute left-0 bottom-0 flex gap-4 mb-5">
+          <div className="ml-4 border-purple-600 border-4 rounded-xl"/>
+          <h1 className="text-9xl font-bold">
+            Rywin Patcharaput
+          </h1>
         </div>
       </header>
 
       {/* Spacing */}
-      <div className="h-11 flex"/>
-      <section className="flex">
-        <Playlist songs={ProjectList}></Playlist>
+      <div className="h-11"/>
+
+      <article className="flex">
+
+          <div className="ml-14"></div>
+
+        {/* Songs */}
+        <section className="w-2/3 pr-16">
+
+        {/* Playlist Header */}
+        <div className="flex gap-4">
+          <div className=" ml-[-20px] border-purple-600 border-4 rounded-xl"/>
+          <h3 className="text-4xl font-bold">Playlist</h3>
+        </div>
 
         {/* Spacing */}
-        <div className="p-4"/>
-        
-        <div className="relative">
-          <AboutMe></AboutMe>
+        <div className="h-4"></div>
+
+
+        <div className="mt-5 relative">
+              {ProjectList.map((x) => (
+                  <Song key={x.id} song={x}/>
+                  ))}
         </div>
-      </section>
+        </section>
+
+        {/* Spacing */}
+        <div className="justify-center">
+        </div>
+        
+        {/* About Me */}
+        <div className="w-1/3">
+          <div className="flex gap-4">
+            <div className="border-purple-600 ml-[-30px] border-4 rounded-xl"/>
+            <h3 className="text-4xl font-bold">About Me:</h3>
+          </div>
+          <div className="h-4"></div>
+            <span className="font-medium text-1xl">
+                { AboutMeComponent() }
+            </span>
+        </div>
+
+        <div className="mr-14"></div>
+      </article>
 
       <div className="h-[1000px]">
       </div>
