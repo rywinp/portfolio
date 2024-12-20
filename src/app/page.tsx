@@ -67,7 +67,7 @@ export default function Home() {
           <div className="ml-14"></div>
 
         {/* Songs */}
-        <section className="w-2/3 pr-16">
+        <section className="w-2/3">
 
         {/* Playlist Header */}
         <div className="flex gap-4">
@@ -87,7 +87,7 @@ export default function Home() {
         </section>
 
         {/* Spacing */}
-        <div className="justify-center">
+        <div className="justify-center w-1/12">
         </div>
         
         {/* About Me */}
