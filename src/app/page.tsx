@@ -62,10 +62,16 @@ export default function Home() {
 
       {/* Spacing */}
       <div className="h-11 flex"/>
-
+      <section className="flex">
         <Playlist songs={ProjectList}></Playlist>
 
-        <AboutMe></AboutMe>
+        {/* Spacing */}
+        <div className="p-4"/>
+        
+        <div className="relative">
+          <AboutMe></AboutMe>
+        </div>
+      </section>
 
       <div className="h-[1000px]">
       </div>
