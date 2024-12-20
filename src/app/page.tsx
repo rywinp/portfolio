@@ -93,7 +93,7 @@ export default function Home() {
         {/* About Me */}
         <div className="w-1/3">
           <div className="flex gap-4">
-            <div className="border-purple-600 ml-[-30px] border-4 rounded-xl"/>
+            <div className="border-purple-600 ml-[-45px] border-4 rounded-xl"/>
             <h3 className="text-4xl font-bold">About Me:</h3>
           </div>
           <div className="h-4"></div>

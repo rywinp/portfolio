@@ -7,7 +7,8 @@ export default function Song({song}) {
             <span className="font-semibold">{song.id}</span>
             <img src={song.path} className="w-[70px] h-[70px]"></img>
             <span className="font-semibold">{song.title} :</span>
-            <span className="font-semibold w-[500px]">{song.description}</span>
+            <span className="font-semibold">{song.description}</span>
+            <div className="w-1/12"/>
             <img src={playPurplePath} className="absolute right-0 w-[50px] h-[50px]"></img>
         </div>
 
