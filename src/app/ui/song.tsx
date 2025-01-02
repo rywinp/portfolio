@@ -9,7 +9,7 @@ export default function Song({song}) {
             <span className="font-semibold whitespace-nowrap">{song.title} :</span>
             <span className="font-semibold">{song.description}</span>
             <div className="w-1/12"/>
-            <img src={playPurplePath} className="absolute right-0 w-[50px] h-[50px]"></img>
+            <img src={playPurplePath} className="absolute right-0 w-[50px] h-[50px] transition-transform hover:scale-110 hover:brightness-125"></img>
         </div>
 
         <div className="mb-7"/>

@@ -2,10 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Song from "@/app/ui/song.tsx";
-import { ProjectList } from "@/app/data/projects.tsx";
+import { PersonalProjects } from "@/app/data/projects.tsx";
 import { AboutMeComponent } from "@/app/data/aboutme.tsx";
 
 export default function Home() {
+  // Sort Project List by ID
+  PersonalProjects.sort((a, b) => a.id - b.id);
+
   const [headerOpacity, setHeaderOpacity] = useState(1);
 
   const handleScroll = () => {
@@ -43,16 +46,16 @@ export default function Home() {
         
         {/* Background image with opacity */}
         <div
-          className={`absolute inset-0 bg-cover bg-center`}
+          className={`absolute inset-0 bg-cover bg-top`}
           style={{
-            backgroundImage: `url(/RywinDennisRectangle.jpeg)`,
+            backgroundImage: `url(/BeanPicture.jpg)`,
             opacity: `${headerOpacity}`,
           }}
         ></div>
 
         {/* Content */}
         <div className="absolute left-0 bottom-0 flex gap-4 mb-5">
-          <div className="ml-4 border-purple-600 border-4 rounded-xl"/>
+          <div className="ml-4 border-blue-500 border-4 rounded-xl"/>
           <h1 className="text-9xl font-bold">
             Rywin Patcharaput
           </h1>
@@ -71,8 +74,8 @@ export default function Home() {
 
         {/* Playlist Header */}
         <div className="flex gap-4">
-          <div className=" ml-[-20px] border-purple-600 border-4 rounded-xl"/>
-          <h3 className="text-4xl font-bold">Playlist</h3>
+          <div className=" ml-[-20px] border-blue-500 border-4 rounded-xl"/>
+          <h3 className="text-4xl font-bold">Personal Projects</h3>
         </div>
 
         {/* Spacing */}
@@ -80,9 +83,18 @@ export default function Home() {
 
 
         <div className="mt-5 relative">
-              {ProjectList.map((x) => (
+              {PersonalProjects.map((x) => (
                   <Song key={x.id} song={x}/>
                   ))}
+        </div>
+
+        {/* Spacing */}
+        <div className="h-4"></div>
+
+        {/* Playlist Header */}
+        <div className="flex gap-4">
+          <div className=" ml-[-20px] border-blue-500 border-4 rounded-xl"/>
+          <h3 className="text-4xl font-bold">School Projects</h3>
         </div>
         </section>
 
@@ -93,7 +105,7 @@ export default function Home() {
         {/* About Me */}
         <div className="w-1/3">
           <div className="flex gap-4">
-            <div className="border-purple-600 ml-[-45px] border-4 rounded-xl"/>
+            <div className="border-blue-500 ml-[-45px] border-4 rounded-xl"/>
             <h3 className="text-4xl font-bold">About Me:</h3>
           </div>
           <div className="h-4"></div>
