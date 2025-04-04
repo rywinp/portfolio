@@ -12,13 +12,13 @@ export default function Home() {
   const [headerOpacity, setHeaderOpacity] = useState(1);
 
   const handleScroll = () => {
-    if(window.scrollY >= 10 && window.scrollY <= 375) {
+    if(window.scrollY >= 60 && window.scrollY <= 400) {
       // Optimize this into ranges so there isnt a need to calculate so much
       // const dividend = Math.floor(window.scrollY / 25)
-      const dividend = window.scrollY / 45
+      const dividend = ((window.scrollY - 60) / 30);
       setHeaderOpacity(1 / (dividend + 1));
     }
-    else if(window.scrollY < 10) {
+    else if(window.scrollY < 60) {
       setHeaderOpacity(1);
     }
     else {
